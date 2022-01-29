@@ -78,10 +78,15 @@ console.log("j"+$(this).val());
     pinLoc.place=possPlaces[j].name; 
     pinLoc.lat=possPlaces[j].lat; 
     pinLoc.lon=possPlaces[j].lon;
-    //pinLoc={place:possPlaces[j].name,lat:possPlaces[j].lat,lon:possPlaces[j].lon}
+    // Computer is adding the place most recently searched by the user to the array of previous places.
     myLocs.push({id:k,pinLoc}); 
+    // Computer adds updated myLocs to local storage
+    localStorage.setItem("myLocsLocal", JSON.stringify(myLocs))
+    // Computer increments the id ready for the next researched place.
      k++;
+     // Computer calls the open weather API
     weatherBalloon(pinLoc );
+    i=myLocs.length- 1;
     previousPlaces(myLocs);
     
     });   
@@ -125,7 +130,7 @@ document.getElementById('today').innerHTML= now;
 // Computer keeps track of previously selected places.
 function previousPlaces(myLocs) {
   document.querySelector('#previous-term').innerHTML="Previous Places"
-  i=myLocs.length- 1;
+
     var previousEl = document.createElement('li');
     previousEl.classList = 'list-item flex-row justify-space-between align-center btn-primary';
     var previousLocEl = document.createElement('button');
@@ -148,5 +153,19 @@ function previousPlaces(myLocs) {
 
 }
 
+function init() {
+  // Computer retries information from local storage.
+  var storedLocs = JSON.parse(localStorage.getItem("myLocsLocal"));
+  // If my localStorage is empty then computer retrieves no information.
+  if (storedLocs !== null) {
+    // If there is information in my localStorage then computer puts it in myLocs.
+    myLocs = storedLocs
+    for (i=0;i<myLocs.length;i++){
+    previousPlaces(myLocs)};
+  }
+}
+
+
 userFormEl.addEventListener('submit', formSubmitHandler);
 var nameEl=document.getElementById('#choice0');
+init();
