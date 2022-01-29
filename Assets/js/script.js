@@ -3,7 +3,14 @@ var key = '6ab359c87b61df5cbd8a7d7e8a717bc5';
 var userFormEl = document.querySelector('#user-form');
 var placeInputEl = document.querySelector('#place');
 var specifyContainerEl = document.querySelector('#specify-container');
+var previousContainerEl= document.querySelector('#previous-container');
 var specifySearchTerm = document.querySelector('#specify-search-term');
+// Computer stores previous locations here.
+var myLocs = []
+// pinLoc is an object that will hold my selected place and its latitude and longitude.
+var pinLoc =new Object()
+// computer uses k as the index for the places in myLocs.
+var k = 0
 
 // Form for user to submit of which place name they would like to see the weather dashboard of.
 var formSubmitHandler = function (event) {
@@ -39,8 +46,8 @@ var formSubmitHandler = function (event) {
         alert('Unable to connect to openweather');
       });
   };
-// pinLoc is an object that will hold my selected place and its latitude and longitude.
-  var pinLoc =new Object()
+
+
 // Computer creates a list of upto three possible places for the user to choose from.
   var displayPlaces = function (possPlaces) {
     if (possPlaces.length === 0) {
@@ -56,21 +63,27 @@ var formSubmitHandler = function (event) {
       // Computer creates the choices as buttons so that the user can select one.
       var titleEl = document.createElement('button');
       titleEl.textContent = placeName;
+      titleEl.name='choice';
       titleEl.id='choice'+i;
+      titleEl.value=i;
       placeEl.appendChild(titleEl);
       specifyContainerEl.appendChild(placeEl);
     }
 
     // Computer finds all of the buttons when clicked on extracts the related id and puts the place and its latitude and longitude in pinLoc.
-    $("button").click(function() {
-      var t0 = $(this).attr('id');
-      var j=parseInt(t0.substring(6));
-      console.log("j"+possPlaces[j].lon);
+    $("button[name='choice']").on('click',function() {
+  
+      var j=parseInt($(this).val());
+console.log("j"+$(this).val());
     pinLoc.place=possPlaces[j].name; 
     pinLoc.lat=possPlaces[j].lat; 
     pinLoc.lon=possPlaces[j].lon;
-     
+    //pinLoc={place:possPlaces[j].name,lat:possPlaces[j].lat,lon:possPlaces[j].lon}
+    myLocs.push({id:k,pinLoc}); 
+     k++;
     weatherBalloon(pinLoc );
+    previousPlaces(myLocs);
+    
     });   
   };
 
@@ -108,5 +121,32 @@ document.getElementById('uvi').innerHTML = "uv: "+d.current.uvi;
 document.getElementById('today').innerHTML= now; 
 
 } 
- userFormEl.addEventListener('submit', formSubmitHandler);
+
+// Computer keeps track of previously selected places.
+function previousPlaces(myLocs) {
+  document.querySelector('#previous-term').innerHTML="Previous Places"
+  i=myLocs.length- 1;
+    var previousEl = document.createElement('li');
+    previousEl.classList = 'list-item flex-row justify-space-between align-center btn-primary';
+    var previousLocEl = document.createElement('button');
+    // Computer adds text content of the ith location.
+    previousLocEl.textContent = myLocs[i].pinLoc.place;
+    previousLocEl.name = 'prevchoice'
+    previousLocEl.value = i;
+    previousContainerEl.appendChild(previousLocEl);
+
+  // Computer find the buttons that are called prevchoice
+  // When the user clicks the button, the function below occurs.
+  $("button[name='prevchoice']").on('click',function() {
+    // Finding the values in the list that the user clicked.
+    var j = parseInt($(this).val());
+    // Computer sets pinLoc to be the previous location that the user has chosen.
+    pinLoc = myLocs[j].pinLoc;
+    // Computer calls weatherBalloon for the location the user has chosen.
+    weatherBalloon(pinLoc);
+})
+
+}
+
+userFormEl.addEventListener('submit', formSubmitHandler);
 var nameEl=document.getElementById('#choice0');
