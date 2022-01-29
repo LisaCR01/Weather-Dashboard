@@ -97,11 +97,13 @@ now =moment().format('dddd, MMMM Do');
 var celcius = Math.round(parseFloat(d.current.temp)-273.15);
 var icon = "https://openweathermap.org/img/wn/" + d.current.weather[0].icon + "@2x.png" 
 console.log("weather"+d.current.weather[0].description);
-document.getElementById('description').innerHTML = d.current.weather[0].description;
+document.getElementById('description').innerHTML = "weather description: "+d.current.weather[0].description;
 document.getElementById('icon').src = icon
-document.getElementById('temp').innerHTML = celcius + '&deg;';
+document.getElementById('temp').innerHTML = "temperature :"+celcius + '&deg;';
 document.getElementById('location').innerHTML = pinLoc.place;
-document.getElementById('uvi').innerHTML = d.current.uvi;
+document.getElementById('wind').innerHTML = "wind speed :"+d.current.wind_speed
+document.getElementById('humidity').innerHTML = "humidity: "+d.current.humidity
+document.getElementById('uvi').innerHTML = "uv: "+d.current.uvi;
 
 document.getElementById('today').innerHTML= now; 
 
