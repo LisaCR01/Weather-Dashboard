@@ -29,7 +29,7 @@ var formSubmitHandler = function (event) {
   // Computer selects three possible places that correspond to the user's input.
   // Computer uses the GEO API from openweathermap
   var getLatLong = function (placeName) {
-    var apiUrl = 'http://api.openweathermap.org/geo/1.0/direct?q='+placeName+',*&limit=3&appid='+key;
+    var apiUrl = 'https://api.openweathermap.org/geo/1.0/direct?q='+placeName+',*&limit=3&appid='+key;
   
     fetch(apiUrl)
       .then(function (response) {
