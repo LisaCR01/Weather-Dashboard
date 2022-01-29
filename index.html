@@ -22,7 +22,7 @@
       <div class="card">
         <h3 class="card-header text-uppercase">Search for a City</h3>
         <form id="user-form" class="card-body">
-          <input name="place" id="place" type="text" autofocus="true" class="form-input" />
+          <input name="place" id="place" type="text" autofocus="true" class="form-input" placeholder="e.g. Birmingham"/>
           <button type="submit" class="btn">search</button>
         </form>
       </div>
@@ -30,10 +30,29 @@
         <h2 class="subtitle">Specify which place you want: <span id="specify-search-term"></span></h2>
         <div id="specify-container" class="list-group"></div>
       </div>
+    <div>
+      <ul id="list-locations"></ul>
+    </div>
+
+   
+    <div class="container" id="weather-card">
+      <header>
+        <div id="location"></div>
+        <div id="today"></div>
+      </header>
+    <div id="weather">
+      <div id="description">desc</div>
+      <img src="" id="icon">
+      <div id="temp">temp</div>
+      <div id="uvi">uv</div>
+    </div>
+    </div>
+  </div>
   </main>
   
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./Assets/js/script.js"></script>
 </body>
 

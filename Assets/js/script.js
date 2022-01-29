@@ -70,8 +70,41 @@ var formSubmitHandler = function (event) {
     pinLoc.lat=possPlaces[j].lat; 
     pinLoc.lon=possPlaces[j].lon;
      
+    weatherBalloon(pinLoc );
     });   
   };
 
-  // When the user presses the submit button form submit handler is called.
-  userFormEl.addEventListener('submit', formSubmitHandler);
+function weatherBalloon(pinLoc ) {
+  console.log("pl "+pinLoc.lat+" "+pinLoc.lon);
+fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+pinLoc.lat+'&lon='+pinLoc.lon+'&appid='+key)
+ .then(function(resp) { return resp.json() }) // Convert data to json
+ .then(function(data) {
+  drawWeather(data);
+   console.log("ds"+data);
+ })
+ /* .catch(function(e) {
+   console.log(e)
+   // catch any errors
+ }
+ ); */
+}
+now =moment().format('dddd, MMMM Do');
+
+ function drawWeather( d ) {
+  var latLocation=d[0]
+  var lonLoncation=d[1]
+  console.log(d)
+var celcius = Math.round(parseFloat(d.current.temp)-273.15);
+var icon = "https://openweathermap.org/img/wn/" + d.current.weather[0].icon + "@2x.png" 
+console.log("weather"+d.current.weather[0].description);
+document.getElementById('description').innerHTML = d.current.weather[0].description;
+document.getElementById('icon').src = icon
+document.getElementById('temp').innerHTML = celcius + '&deg;';
+document.getElementById('location').innerHTML = pinLoc.place;
+document.getElementById('uvi').innerHTML = d.current.uvi;
+
+document.getElementById('today').innerHTML= now; 
+
+} 
+ userFormEl.addEventListener('submit', formSubmitHandler);
+var nameEl=document.getElementById('#choice0');

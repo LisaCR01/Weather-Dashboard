@@ -295,6 +295,7 @@
     flex: 0 0 100%;
   }
   
+
   /* col-sm */
   @media screen and (min-width: 640px) {
     .col-sm-1 {
