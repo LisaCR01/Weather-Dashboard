@@ -124,7 +124,7 @@ document.getElementById('humidity').innerHTML = "humidity: "+d.current.humidity
 document.getElementById('uvi').innerHTML = "uv: "+d.current.uvi;
 
 document.getElementById('today').innerHTML= now; 
-
+forecastWeather(d);
 } 
 
 // Computer keeps track of previously selected places.
@@ -153,6 +153,48 @@ function previousPlaces(myLocs) {
 
 }
 
+function forecastWeather(d) {
+  var day1 = moment().add(1, 'days').calendar();
+  var icon1 = "https://openweathermap.org/img/wn/" + d.daily[1].weather[0].icon + "@2x.png"
+  document.getElementById('day1').innerHTML = day1;
+  document.getElementById('icon1').src = icon1;
+  document.getElementById('temp1').innerHTML = Math.round(parseFloat(d.daily[1].temp.day) - 273.15) + '&deg;';
+  document.getElementById('wind1').innerHTML = d.daily[1].wind_speed + "mph";
+  document.getElementById('humidity1').innerHTML = "humidity " + d.daily[1].humidity;
+
+  var day2 = moment().add(2, 'days').calendar();
+  var icon2 = "https://openweathermap.org/img/wn/" + d.daily[2].weather[0].icon + "@2x.png"
+  document.getElementById('day2').innerHTML = day2;
+  document.getElementById('icon2').src = icon2;
+  document.getElementById('temp2').innerHTML = Math.round(parseFloat(d.daily[2].temp.day) - 273.15) + '&deg;';
+  document.getElementById('wind2').innerHTML = d.daily[2].wind_speed + "mph";
+  document.getElementById('humidity2').innerHTML = "humidity " + d.daily[2].humidity;
+
+  var day3 = moment().add(3, 'days').calendar();
+  var icon3 = "https://openweathermap.org/img/wn/" + d.daily[3].weather[0].icon + "@2x.png"
+  document.getElementById('day3').innerHTML = day3;
+  document.getElementById('icon3').src = icon3;
+  document.getElementById('temp3').innerHTML = Math.round(parseFloat(d.daily[3].temp.day) - 273.15) + '&deg;';
+  document.getElementById('wind3').innerHTML = d.daily[3].wind_speed + "mph";
+  document.getElementById('humidity3').innerHTML = "humidity " + d.daily[3].humidity;
+
+  var day4 = moment().add(4, 'days').calendar();
+  var icon4 = "https://openweathermap.org/img/wn/" + d.daily[4].weather[0].icon + "@2x.png"
+  document.getElementById('day4').innerHTML = day4;
+  document.getElementById('icon4').src = icon4;
+  document.getElementById('temp4').innerHTML = Math.round(parseFloat(d.daily[4].temp.day) - 273.15) + '&deg;';
+  document.getElementById('wind4').innerHTML = d.daily[4].wind_speed + "mph";
+  document.getElementById('humidity4').innerHTML = "humidity " + d.daily[4].humidity;
+
+  var day5 = moment().add(5, 'days').calendar();
+  var icon5= "https://openweathermap.org/img/wn/" + d.daily[5].weather[0].icon + "@2x.png"
+  document.getElementById('day5').innerHTML = day5;
+  document.getElementById('icon5').src = icon5;
+  document.getElementById('temp5').innerHTML = Math.round(parseFloat(d.daily[5].temp.day) - 273.15) + '&deg;';
+  document.getElementById('wind5').innerHTML = d.daily[5].wind_speed + "mph";
+  document.getElementById('humidity5').innerHTML = "humidity " + d.daily[5].humidity;
+}
+
 function init() {
   // Computer retries information from local storage.
   var storedLocs = JSON.parse(localStorage.getItem("myLocsLocal"));
@@ -161,6 +203,7 @@ function init() {
     // If there is information in my localStorage then computer puts it in myLocs.
     myLocs = storedLocs
     for (i=0;i<myLocs.length;i++){
+      // When the user refreshes the page the list of previous locations is made visable.
     previousPlaces(myLocs)};
   }
 }

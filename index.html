@@ -1,64 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="./Assets/css/style.css" />
-  <title>Git it Done</title>
-</head>
-
-<body class="flex-column min-100-vh">
-  <header class="hero">
-    <h1 class="app-title">Weather Dashboard</h1>
-  </header>
-
-
-  <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
-      <div class="card">
-        <h3 class="card-header text-uppercase">Search for a City</h3>
-        <form id="user-form" class="card-body">
-          <input name="place" id="place" type="text" autofocus="true" class="form-input" placeholder="e.g. Birmingham"/>
-          <button type="submit" class="btn">search</button>
-        </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <title>What's the weather?</title>
+  </head>
+<div class="container-fluid my-auto">
+    <header class="hero">
+      <h1 class="app-title">Weather Dashboard</h1>
+    </header>
+    <main>
+      <div class="row flex-row justify-space-between">
+        <div class="col col-5 col-md-5">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search for a City</h3>
+            <form id="user-form" class="card-body">
+              <input
+                name="place"
+                id="place"
+                type="text"
+                autofocus="true"
+                class="form-input"
+                placeholder="e.g. Birmingham"
+              />
+              <button type="submit" class="btn">search</button>
+            </form>
+          </div>
+          <h2 class="subtitle">
+            Specify which place you want: <span id="specify-search-term"></span>
+          </h2>
+          <div id="specify-container" class="list-group"></div>
+          <div>
+            <span id="previous-term"></span>
+            <ul id="previous-container"></ul>
+          </div>
+        </div>
+      <div class="col-7 col-md-7 justify-content-center" id="weather-card">
+          <header>
+            <div id="location"></div>
+            <div id="today"></div>
+          </header>
+          <div id="weather"></div>
+          <img src="" id="icon" />
+          <div id="description"></div>
+          <div id="temp"></div>
+          <div id="wind"></div>
+          <div id="humidity"></div>
+          <div id="uvi"></div>
+          <div class="row  flex-row justify-content-center">
+            <div class="col-2 col-md-2 p-2">
+              <div id="day1"></div>
+              <div id="weather1"></div>
+              <div id="description1"></div>
+              <img src="" id="icon1" />
+              <div id="temp1"></div>
+              <div id="location1"></div>
+              <div id="wind1"></div>
+              <div id="humidity1"></div>
+            </div>
+            </div>
+            <div class="col-2 col-md-2 p-2">
+              <div id="day2"></div>
+              <div id="weather2"></div>
+              <div id="description2"></div>
+              <img src="" id="icon2" />
+              <div id="temp2"></div>
+              <div id="location2"></div>
+              <div id="wind2"></div>
+              <div id="humidity2"></div>
+            </div>
+            <div class="col-2 col-md-2 p-2">
+              <div id="day3"></div>
+              <div id="weather3"></div>
+              <div id="description3"></div>
+              <img src="" id="icon3" />
+              <div id="temp3"></div>
+              <div id="location3"></div>
+              <div id="wind3"></div>
+              <div id="humidity3"></div>
+            </div>
+            <div class="col-2 col-md-2 p-2">
+              <div id="day4"></div>
+              <div id="weather4"></div>
+              <div id="description4"></div>
+              <img src="" id="icon4" />
+              <div id="temp4"></div>
+              <div id="location4"></div>
+              <div id="wind4"></div>
+              <div id="humidity4"></div>
+            </div>
+            <div class="col-2 col-md-2 p-2">
+              <div id="day5"></div>
+              <div id="weather5"></div>
+              <div id="description5"></div>
+              <img src="" id="icon5" />
+              <div id="temp5"></div>
+              <div id="location5"></div>
+              <div id="wind5"></div>
+              <div id="humidity5"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-md-8">
-        <h2 class="subtitle">Specify which place you want: <span id="specify-search-term"></span></h2>
-        <div id="specify-container" class="list-group"></div>
-      </div>
+    </main>
 
-    <div>
-      <span id="previous-term"></span>
-      <ul id="previous-container"></ul>
-    </div>
-
-   
-    <div class="container" id="weather-card">
-      <header>
-        <div id="location"></div>
-        <div id="today"></div>
-      </header>
-    <div id="weather">
-      <img src="" id="icon">
-      <div id="description"></div>
-      <div id="temp"></div>
-      <div id="wind"></div>
-      <div id="humidity"></div>
-      <div id="uvi"></div>
-
-    </div>
-    </div>
-  </div>
-  </main>
-  
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./Assets/js/script.js"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./Assets/js/script.js"></script>
+  </body>
 </html>
