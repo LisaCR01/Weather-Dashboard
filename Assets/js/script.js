@@ -114,6 +114,10 @@ now =moment().format('dddd, MMMM Do');
   console.log(d)
 var celcius = Math.round(parseFloat(d.current.temp)-273.15);
 var icon = "https://openweathermap.org/img/wn/" + d.current.weather[0].icon + "@2x.png" 
+if(d.current.uvi <2){$("#uvi").css("background", "green")}
+else 
+if(d.current.uvi <5){$("#uvi").css("background", "yellow")}
+else{$("#uvi").css("background", "red")}
 console.log("weather"+d.current.weather[0].description);
 document.getElementById('description').innerHTML = "weather description: "+d.current.weather[0].description;
 document.getElementById('icon').src = icon
