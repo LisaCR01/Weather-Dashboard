@@ -35,7 +35,6 @@ var formSubmitHandler = function (event) {
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (data) {
-            console.log(data+ " "+placeName);
             displayPlaces(data);
           });
         } else {
