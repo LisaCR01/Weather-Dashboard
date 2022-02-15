@@ -73,7 +73,7 @@ var formSubmitHandler = function (event) {
     $("button[name='choice']").on('click',function() {
   
       var j=parseInt($(this).val());
-console.log("j"+$(this).val());
+     console.log("j"+$(this).val());
     pinLoc.place=possPlaces[j].name; 
     pinLoc.lat=possPlaces[j].lat; 
     pinLoc.lon=possPlaces[j].lon;
