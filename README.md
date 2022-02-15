@@ -37,3 +37,6 @@ In this project built a weather dashboard that will run in the browser and featu
 
 [Link to Deployed Application](https://lisacr01.github.io/Weather-Dashboard/)
 
+## Contact Information
+
+My Email:[lcrgunn@gmail.com](mailto:lcrgunn@gmail.com)
