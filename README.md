@@ -2,6 +2,17 @@
 
 In this project built a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS. The purposes of this project is to highlight the use of third party APIs because of how developers are often tasked with retrieving data from another application's API and using it in the context of their own. The API that I use in this project is OpenWeather One Call API, which let me retrieve weather data for different cities. The central things I use in this project is: my OpenWeather key API, local storage and the use of icons. 
 
+## Technologies Used
+
+* HTML
+* Bootstrap
+* JavaScript
+* Jquery
+* OpenWeather Geocoding API
+* OpenWeather One Call API
+* Moment.js Library
+
+
 ## Criteria that I met to achieve this
 
 * When the user searches for a city they are presented with current and future conditions for that city.
