@@ -16,9 +16,10 @@ In this project built a weather dashboard that will run in the browser and featu
 
 ## Deployed Application
 
-![Deployed Application](./Assets/images/Deployed-Application.png?raw=true)
 
-![Deployed Application](./Assets/images/Before-Use-Deployed-Application.png?raw=true)
+![Deployed Application before use](./Assets/images/Before-Use-Deployed-Application.png?raw=true)
+
+![Deployed Application in use](./Assets/images/Deployed-Application.png?raw=true)
 
 [Link to Deployed Application](https://lisacr01.github.io/Weather-Dashboard/)
 
