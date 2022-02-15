@@ -16,8 +16,11 @@ In this project built a weather dashboard that will run in the browser and featu
 
 ## Deployed Application
 
+### Deployed Application before Use
 
-![Deployed Application before use](./Assets/images/Before-Use-Deployed-Application.png?raw=true)
+![Deployed Application before Use](./Assets/images/Before-Use-Deployed-Application.png?raw=true)
+
+### Deployed Application in Use
 
 ![Deployed Application in use](./Assets/images/Deployed-Application.png?raw=true)
 
